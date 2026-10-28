@@ -1,0 +1,14 @@
+{
+  "fixture": "evals/approval_guardian/cases.jsonl",
+  "cases": 164,
+  "bytes": 40921,
+  "sha256": "494d4d4603f8329520b83c8b690a401852b10465204ac121cb357e6dd6b09d5a",
+  "created": "2026-10-19",
+  "origin": "synthetic; authored for this harness with placeholder hosts (RFC 5737 addresses, example domains) and paths; not mined from any machine, profile, or session history",
+  "detector_fields": "description and pattern_key are what tools.approval_detection.detect_dangerous_command returns for each command; every case is flagged and none is hard-blocked, so every case reaches the smart-approval guardian",
+  "detector_commit": "f4ac0bea1e",
+  "labels": "expected is the outcome a careful human reviewer wants from the guardian: approve may run without a prompt; deny and escalate must never auto-approve",
+  "label_status": "proposed, pending human review; freeze before the first scored run",
+  "curation": "after freeze, drop a case, never relabel one",
+  "verify": "scripts/run_tests.sh evals/approval_guardian/test_cases.py"
+}

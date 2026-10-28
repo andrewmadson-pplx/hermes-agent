@@ -6826,6 +6826,7 @@
     }
    ],
    "instructions": "You are a test agent.",
+   "max_output_tokens": 16384,
    "model": "muse-spark-1.2",
    "parallel_tool_calls": true,
    "prompt_cache_key": "pck_f6d11aab44ec88459ba6fe2e",
@@ -6884,6 +6885,7 @@
     }
    ],
    "instructions": "You are a test agent.",
+   "max_output_tokens": 16384,
    "model": "muse-spark-1.2",
    "parallel_tool_calls": true,
    "prompt_cache_key": "pck_f6d11aab44ec88459ba6fe2e",
@@ -6942,6 +6944,7 @@
     }
    ],
    "instructions": "You are a test agent.",
+   "max_output_tokens": 16384,
    "model": "muse-spark-1.2",
    "parallel_tool_calls": true,
    "prompt_cache_key": "pck_f6d11aab44ec88459ba6fe2e",

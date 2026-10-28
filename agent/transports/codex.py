@@ -479,6 +479,14 @@ def _profile_declared_efforts(provider: Any, model: Optional[str], base_url: Any
     return None if declared is None else tuple(declared)
 
 
+def _profile_max_tokens(provider: Any, model: str) -> int | None:
+    """The provider profile's per-model output cap when the caller set none, as on chat_completions."""
+    from providers import get_provider_profile
+
+    profile = get_provider_profile(str(provider or "").strip().lower()) if provider else None
+    return profile.get_max_tokens(model) if profile is not None else None
+
+
 def _is_azure_foundry_responses(params: dict[str, Any]) -> bool:
     """True for Microsoft Foundry's Responses API (provider id, else host match — not substring)."""
     from utils import base_url_host_matches
@@ -873,6 +881,8 @@ class ResponsesApiTransport(ProviderTransport):
                 _merge_extra_headers(kwargs, **headers)
         elif params.get("max_tokens") is not None:
             kwargs["max_output_tokens"] = params["max_tokens"]
+        elif (profile_max := _profile_max_tokens(params.get("provider"), model)) is not None:
+            kwargs["max_output_tokens"] = profile_max
 
         if is_xai_responses and session_id:
             # Scoped like the body key so cron fires don't each pin a different xAI backend server.

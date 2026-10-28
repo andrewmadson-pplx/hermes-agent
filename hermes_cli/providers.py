@@ -59,6 +59,8 @@ HERMES_OVERLAYS: dict[str, HermesOverlay] = {
     "huggingface": HermesOverlay(is_aggregator=True, base_url_env_var="HF_BASE_URL"),
     "novita": HermesOverlay(is_aggregator=True, base_url_env_var="NOVITA_BASE_URL"),
     "xai": HermesOverlay(transport="codex_responses", base_url_override="https://api.x.ai/v1", base_url_env_var="XAI_BASE_URL"),
+    "perplexity": HermesOverlay(transport="codex_responses", base_url_override="https://api.perplexity.ai/v1",
+                                base_url_env_var="PERPLEXITY_BASE_URL"),
     "nvidia": HermesOverlay(base_url_override="https://integrate.api.nvidia.com/v1", base_url_env_var="NVIDIA_BASE_URL"),
     "xiaomi": HermesOverlay(base_url_env_var="XIAOMI_BASE_URL"),
     "tencent-tokenhub": HermesOverlay(base_url_env_var="TOKENHUB_BASE_URL"),
